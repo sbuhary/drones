@@ -1,5 +1,9 @@
 package com.sbuhary.drones.repository;
 
-public class DroneRepository {
+import org.springframework.data.repository.CrudRepository;
+
+import com.sbuhary.drones.entity.Drone;
+
+public interface DroneRepository extends CrudRepository<Drone, Long> {
 
 }
