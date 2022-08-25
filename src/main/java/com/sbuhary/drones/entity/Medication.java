@@ -1,5 +1,7 @@
 package com.sbuhary.drones.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,32 +12,37 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
 
 @Entity
-@Table(name = "MEDICATIONS")
+@Table(name = "medications")
 @Data
-public class Medication {
-	
+public class Medication implements Serializable {
+
+	private static final long serialVersionUID = 7108513806918957174L;
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
-	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
 	@Column(name = "name", nullable = false)
 	private String name;
-	
+
 	@Column(name = "weight", nullable = false)
 	private int weight;
-	
-	@Column(name = "code", nullable = false)
+
+	@Column(name = "code", nullable = false, unique = true)
 	private String code;
-	
+
 	@Lob
-	@Column(name = "image", nullable = false, columnDefinition="BLOB")
+	@Column(name = "image", nullable = false, columnDefinition = "LONGBLOB")
 	private byte[] image;
-	
+
+	@JsonIgnore
 	@ManyToOne
-	@JoinColumn(name="drone_id", nullable=false)
+	@JoinColumn(name = "drone_id", nullable = true)
 	private Drone drone;
 
 }
