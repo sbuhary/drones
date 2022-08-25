@@ -21,13 +21,13 @@ public class DroneServicesApplication {
 	}
 
 	@Bean
-	public CommandLineRunner mappingDemo(DroneRepository droneRepository, MedicationRepository medicationRepository) {
+	public CommandLineRunner demo(DroneRepository droneRepository, MedicationRepository medicationRepository) {
 		return args -> {
 
 			// create a new book
 			Drone drone1 = new Drone();
 			drone1.setSerialNumber("10000001");
-			drone1.setModel(Model.MIDDLE_WEIGHT);
+			drone1.setModel(Model.Middleweight);
 			drone1.setWeightLimit(250);
 			drone1.setBatteryCapacity(90);
 			drone1.setState(State.LOADING);

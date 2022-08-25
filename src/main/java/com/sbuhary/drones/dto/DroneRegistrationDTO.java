@@ -14,6 +14,6 @@ public class DroneRegistrationDTO {
 	private String serialNumber; // 100max
 	private Model model;
 	private int weightLimit; // 500gr max
-	private int batteryCapacity; // percentage
+	private int batteryCapacity; // percentage // also automate this
 	// private State state;
 }

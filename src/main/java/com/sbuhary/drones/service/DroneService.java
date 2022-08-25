@@ -5,7 +5,7 @@ import com.sbuhary.drones.entity.Drone;
 
 public interface DroneService {
 
-	public void registerDrone(DroneRegistrationDTO droneRegistrationDTO);
+	void registerDrone(DroneRegistrationDTO droneRegistrationDTO);
 	
 	// public Drone findDroneBySerialNumber(String serialNumber);
 

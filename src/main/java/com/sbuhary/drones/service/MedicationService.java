@@ -9,7 +9,7 @@ import com.sbuhary.drones.entity.Drone;
 
 public interface MedicationService {
 
-	public MedicationDTO getJson(String medicationDTO);
+	MedicationDTO getJson(String medicationDTO);
 
-	public void addMedication(MedicationDTO medicationDTO);
+	void addMedication(MedicationDTO medicationDTO);
 }
