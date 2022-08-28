@@ -16,5 +16,5 @@ public interface MedicationService {
 
 	Medication addMedication(String serialNumber, String medicationDTO, MultipartFile file) throws IOException;
 
-	List<Medication> findByDrone(String serialNumber);
+	List<Medication> retrieveMedications(String serialNumber);
 }

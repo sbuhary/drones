@@ -21,7 +21,7 @@ public class MedicationDTO {
 
 	@NotNull
 	@NotBlank(message = "Medication name is mandatory")
-	@Pattern(regexp = "^[a-zA-Z0-9_-]*$", message = "allowed only letters, numbers, ‘-‘, ‘_’")
+	@Pattern(regexp = "^[a-zA-Z0-9_-]*$", message = "Name allows only letters, numbers, hyphens and underscores")
 	private String name;
 
 	@NotNull
@@ -30,7 +30,7 @@ public class MedicationDTO {
 
 	@NotNull
 	@NotBlank(message = "Medication code is mandatory")
-	@Pattern(regexp = "^[A-Z0-9_]*$", message = "allowed only upper case letters, underscore and numbers")
+	@Pattern(regexp = "^[A-Z0-9_]*$", message = "Code allows only upper case letters, underscore and numbers")
 	private String code;
 
 	private MultipartFile image;

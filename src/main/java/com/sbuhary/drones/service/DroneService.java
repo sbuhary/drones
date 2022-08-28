@@ -12,11 +12,11 @@ import com.sbuhary.drones.entity.Drone;
  */
 public interface DroneService {
 
-	Drone registerDrone(DroneRegistrationDTO droneRegistrationDTO);
+	Drone register(DroneRegistrationDTO droneRegistrationDTO);
 
 	Drone findDroneBySerialNumber(String serialNumber);
 
-	List<Drone> availableDrones();
+	List<Drone> retrieveAvailableDrones();
 
 	boolean isDroneExists(String serialNumber);
 }

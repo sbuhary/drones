@@ -13,6 +13,15 @@ public class Utils {
 	private Utils() {
 	}
 
+	/**
+	 * save image file in the system disk and return file
+	 * 
+	 * @param serialNo
+	 * @param code
+	 * @param multipartFile
+	 * @return
+	 * @throws IOException
+	 */
 	public static File createMedicationImageFile(String serialNo, String code, MultipartFile multipartFile)
 			throws IOException {
 

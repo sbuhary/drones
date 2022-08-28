@@ -55,16 +55,31 @@ public class Drone implements Serializable {
 	@OneToMany(mappedBy = "drone", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Medication> medications;
 
+	/**
+	 * add medication at the time of drone registration
+	 * 
+	 * @param medication
+	 */
 	public void addMedication(Medication medication) {
 		medications.add(medication);
 		medication.setDrone(this);
 	}
 
+	/**
+	 * remove medication - for future use
+	 * 
+	 * @param medication
+	 */
 	public void removeMedication(Medication medication) {
 		medications.remove(medication);
 		medication.setDrone(null);
 	}
 
+	/**
+	 * calculate the total weight of all medication items
+	 * 
+	 * @return
+	 */
 	public int retrieveCurrentWeight() {
 		return medications.stream().mapToInt(x -> x.getWeight()).sum();
 	}

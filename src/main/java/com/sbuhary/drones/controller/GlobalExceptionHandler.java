@@ -17,6 +17,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 import com.sbuhary.drones.dto.ErrorResponseDTO;
 import com.sbuhary.drones.exception.AlreadyExistsException;
 import com.sbuhary.drones.exception.LimitExceededException;
+import com.sbuhary.drones.exception.NotAllowedException;
 import com.sbuhary.drones.exception.NotFoundException;
 
 /**
@@ -78,6 +79,15 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
 		ErrorResponseDTO errorResponse = new ErrorResponseDTO(HttpStatus.CONFLICT.value(),
 				"Limit exceeds: " + ex.getMessage());
+
+		return ResponseEntity.status(HttpStatus.CONFLICT).body(errorResponse);
+	}
+
+	@ExceptionHandler({ NotAllowedException.class })
+	protected ResponseEntity<Object> handleNotAllowed(Exception ex, WebRequest req) {
+
+		ErrorResponseDTO errorResponse = new ErrorResponseDTO(HttpStatus.CONFLICT.value(),
+				"Not allowed: " + ex.getMessage());
 
 		return ResponseEntity.status(HttpStatus.CONFLICT).body(errorResponse);
 	}

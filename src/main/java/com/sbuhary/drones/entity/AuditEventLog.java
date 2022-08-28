@@ -28,11 +28,11 @@ public class AuditEventLog implements Serializable {
 	private Long id;
 
 	@Column(name = "serial_number", nullable = false, length = 100)
-	private String serialNumber; // 100max
+	private String serialNumber;
 
 	@Column(name = "battery_capacity_percentage", nullable = false)
-	private int batteryCapacity; // percentage
+	private int batteryCapacity;
 
 	@Column(name = "date_time", nullable = false)
-	private String timestamp; // percentage
+	private String dateTime;
 }

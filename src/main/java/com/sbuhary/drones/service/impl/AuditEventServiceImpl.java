@@ -44,7 +44,7 @@ public class AuditEventServiceImpl implements AuditEventService {
 			auditEventLog.setSerialNumber(drone.getSerialNumber());
 			auditEventLog.setBatteryCapacity(drone.getBatteryCapacity());
 			// auditEventLog.setTimestamp(dateTimeFormatter.format(LocalDateTime.now()));
-			auditEventLog.setTimestamp(LocalDateTime.now().toString());
+			auditEventLog.setDateTime(LocalDateTime.now().toString());
 
 			auditEventLogRepository.save(auditEventLog);
 

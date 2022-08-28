@@ -22,12 +22,12 @@ public class DroneRegistrationDTO {
 	private String serialNumber;
 
 	@NotNull
-	@PositiveOrZero
+	@PositiveOrZero(message = "Weight limit should be a positive value")
 	@Max(value = 500, message = "Maximum weight limit allowed for drone is {value} grams")
 	private int weightLimit;
 
 	@NotNull
-	@PositiveOrZero
+	@PositiveOrZero(message = "Battery capacity should be a positive value")
 	@Max(value = 100, message = "Maximum battery capacity for drone should be {value} percentage")
-	private int batteryCapacity; // percentage // also automate this
+	private int batteryCapacity;
 }
