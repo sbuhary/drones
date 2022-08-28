@@ -13,17 +13,18 @@ import com.sbuhary.drones.entity.State;
 import com.sbuhary.drones.exception.AlreadyExistsException;
 import com.sbuhary.drones.exception.NotFoundException;
 import com.sbuhary.drones.repository.DroneRepository;
-import com.sbuhary.drones.repository.MedicationRepository;
 import com.sbuhary.drones.service.DroneService;
 
+/**
+ * 
+ * @author SBUHARY
+ *
+ */
 @Service
 public class DroneServiceImpl implements DroneService {
 
 	@Autowired
 	private DroneRepository droneRepository;
-
-	@Autowired
-	private MedicationRepository medicationRepository;
 
 	@Override
 	public Drone registerDrone(DroneRegistrationDTO droneRegistrationDTO) {
@@ -35,7 +36,8 @@ public class DroneServiceImpl implements DroneService {
 
 		Drone drone = new Drone();
 		drone.setSerialNumber(droneRegistrationDTO.getSerialNumber());
-		drone.setModel(Enum.valueOf(Model.class, droneRegistrationDTO.getModel()));
+		// drone.setModel(Enum.valueOf(Model.class, droneRegistrationDTO.getModel()));
+		drone.setModel(Model.getModel(droneRegistrationDTO.getWeightLimit()));
 		drone.setWeightLimit(droneRegistrationDTO.getWeightLimit());
 		// drone.setCurrentWeight(0);
 		drone.setBatteryCapacity(droneRegistrationDTO.getBatteryCapacity());
@@ -63,7 +65,7 @@ public class DroneServiceImpl implements DroneService {
 				drones.add(drone);
 			}
 		}
-		
+
 		return drones;
 	}
 

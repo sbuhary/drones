@@ -1,5 +1,10 @@
 package com.sbuhary.drones.exception;
 
+/**
+ * 
+ * @author SBUHARY
+ *
+ */
 public class AlreadyExistsException extends RuntimeException {
 
 	private static final long serialVersionUID = -6569851755443489793L;

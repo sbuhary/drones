@@ -7,6 +7,11 @@ import org.springframework.data.repository.CrudRepository;
 import com.sbuhary.drones.entity.Drone;
 import com.sbuhary.drones.entity.Medication;
 
+/**
+ * 
+ * @author SBUHARY
+ *
+ */
 public interface MedicationRepository extends CrudRepository<Medication, Long> {
 
 	List<Medication> findByDrone(Drone drone);

@@ -10,6 +10,11 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
+/**
+ * 
+ * @author SBUHARY
+ *
+ */
 @Getter
 @Setter
 @RequiredArgsConstructor

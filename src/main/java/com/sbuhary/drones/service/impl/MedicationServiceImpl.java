@@ -26,6 +26,11 @@ import com.sbuhary.drones.service.DroneService;
 import com.sbuhary.drones.service.MedicationService;
 import com.sbuhary.drones.util.Utils;
 
+/**
+ * 
+ * @author SBUHARY
+ *
+ */
 @Service
 public class MedicationServiceImpl implements MedicationService {
 
@@ -34,7 +39,7 @@ public class MedicationServiceImpl implements MedicationService {
 
 	@Autowired
 	private MedicationRepository medicationRepository;
-	
+
 	@Autowired
 	private DroneService droneService;
 
@@ -69,14 +74,15 @@ public class MedicationServiceImpl implements MedicationService {
 			fileStore.mkdir();
 		}
 
-		File file = Utils.createMedicationImageFile(serialNumber, medicationDTO.getCode(), multipartFile);
-
 		Medication medication = new Medication();
 		medication.setName(medicationDTO.getName());
 		medication.setWeight(medicationDTO.getWeight());
 		medication.setCode(medicationDTO.getCode());
+
+		File file = Utils.createMedicationImageFile(serialNumber, medicationDTO.getCode(), multipartFile);
 		medication.setImage(file.getName());
-		//drone.setCurrentWeight(drone.getMedications().stream().mapToInt(x -> x.getWeight()).sum());
+
+		drone.setCurrentWeight(drone.retrieveCurrentWeight() + medicationDTO.getWeight());
 		medication.setDrone(drone);
 
 		return medicationRepository.save(medication);

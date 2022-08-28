@@ -5,7 +5,7 @@ package com.sbuhary.drones.service;
  * @author SBUHARY
  *
  */
-public interface AuditEventService {
+public interface BatterySimulatorService {
 
-	void checkDroneBatteryLevels();
+	void dischargeBattery();
 }

@@ -19,6 +19,11 @@ import com.sbuhary.drones.exception.AlreadyExistsException;
 import com.sbuhary.drones.exception.LimitExceededException;
 import com.sbuhary.drones.exception.NotFoundException;
 
+/**
+ * 
+ * @author SBUHARY
+ *
+ */
 @ControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 

@@ -11,6 +11,11 @@ import javax.persistence.Table;
 
 import lombok.Data;
 
+/**
+ * 
+ * @author SBUHARY
+ *
+ */
 @Entity
 @Table(name = "auditeventlogs")
 @Data
@@ -28,7 +33,6 @@ public class AuditEventLog implements Serializable {
 	@Column(name = "battery_capacity_percentage", nullable = false)
 	private int batteryCapacity; // percentage
 
-	@Column(name = "timestamp", nullable = false)
+	@Column(name = "date_time", nullable = false)
 	private String timestamp; // percentage
-
 }

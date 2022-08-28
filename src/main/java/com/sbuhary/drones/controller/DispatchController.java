@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.sbuhary.drones.dto.BatteryLevelDTO;
 import com.sbuhary.drones.dto.DroneRegistrationDTO;
 import com.sbuhary.drones.dto.ResponseDTO;
 import com.sbuhary.drones.entity.Drone;
@@ -23,6 +24,11 @@ import com.sbuhary.drones.entity.Medication;
 import com.sbuhary.drones.service.DroneService;
 import com.sbuhary.drones.service.MedicationService;
 
+/**
+ * 
+ * @author SBUHARY
+ *
+ */
 @RestController
 @RequestMapping("/api/v1/drone")
 public class DispatchController {
@@ -33,6 +39,12 @@ public class DispatchController {
 	@Autowired
 	private MedicationService medicationService;
 
+	/**
+	 * registering a drone
+	 * 
+	 * @param droneRegistrationDTO
+	 * @return
+	 */
 	@PostMapping
 	public ResponseEntity<ResponseDTO<Drone>> registerDrone(
 			@Valid @RequestBody DroneRegistrationDTO droneRegistrationDTO) {
@@ -44,6 +56,15 @@ public class DispatchController {
 		return ResponseEntity.status(HttpStatus.CREATED).body(response);
 	}
 
+	/**
+	 * loading a drone with medication items
+	 * 
+	 * @param serialNumber
+	 * @param medicationJson
+	 * @param file
+	 * @return
+	 * @throws Exception
+	 */
 	@PostMapping("/{serial_no}/medication")
 	public ResponseEntity<ResponseDTO<Medication>> loadDroneWithMedications(
 			@PathVariable("serial_no") String serialNumber, @RequestPart("medication_json") String medicationJson,
@@ -56,6 +77,12 @@ public class DispatchController {
 		return ResponseEntity.status(HttpStatus.CREATED).body(response);
 	}
 
+	/**
+	 * checking loaded medication items for a given drone
+	 * 
+	 * @param serialNumber
+	 * @return
+	 */
 	@GetMapping(value = "/{serial_no}/medication")
 	public ResponseEntity<ResponseDTO<List<Medication>>> loadedMedicationItems(
 			@PathVariable("serial_no") String serialNumber) {
@@ -67,6 +94,11 @@ public class DispatchController {
 		return ResponseEntity.status(HttpStatus.OK).body(response);
 	}
 
+	/**
+	 * checking available drones for loading
+	 * 
+	 * @return
+	 */
 	@GetMapping(value = "/available")
 	public ResponseEntity<ResponseDTO<List<Drone>>> availableDrones() {
 
@@ -77,12 +109,19 @@ public class DispatchController {
 		return ResponseEntity.status(HttpStatus.OK).body(response);
 	}
 
+	/**
+	 * check drone battery level for a given drone
+	 * 
+	 * @param serialNumber
+	 * @return
+	 */
 	@GetMapping(value = "/{serial_no}/battery_level")
-	public ResponseEntity<ResponseDTO<Integer>> batterylevel(@PathVariable("serial_no") String serialNumber) {
+	public ResponseEntity<ResponseDTO<BatteryLevelDTO>> batterylevel(@PathVariable("serial_no") String serialNumber) {
 
 		Drone drone = droneService.findDroneBySerialNumber(serialNumber);
-		ResponseDTO<Integer> response = new ResponseDTO<Integer>(HttpStatus.OK.value(), HttpStatus.OK.getReasonPhrase(),
-				drone.getBatteryCapacity());
+		BatteryLevelDTO batteryLevelDTO = new BatteryLevelDTO(serialNumber, drone.getBatteryCapacity());
+		ResponseDTO<BatteryLevelDTO> response = new ResponseDTO<BatteryLevelDTO>(HttpStatus.OK.value(),
+				HttpStatus.OK.getReasonPhrase(), batteryLevelDTO);
 
 		return ResponseEntity.status(HttpStatus.OK).body(response);
 	}

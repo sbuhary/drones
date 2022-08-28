@@ -8,7 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -16,6 +15,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
 
+/**
+ * 
+ * @author SBUHARY
+ *
+ */
 @Entity
 @Table(name = "medications")
 @Data
@@ -36,14 +40,11 @@ public class Medication implements Serializable {
 	@Column(name = "code", nullable = false)
 	private String code;
 
-	//@Lob
 	@Column(name = "image", nullable = true)
-	//private byte[] image;
 	private String image;
 
 	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "drone_id", nullable = true)
 	private Drone drone;
-
 }

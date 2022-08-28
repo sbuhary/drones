@@ -1,5 +1,10 @@
 package com.sbuhary.drones.exception;
 
+/**
+ * 
+ * @author SBUHARY
+ *
+ */
 public class LimitExceededException extends RuntimeException {
 
 	private static final long serialVersionUID = 3025954355094635885L;
