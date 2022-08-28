@@ -30,13 +30,25 @@ public class DroneServicesApplication {
 			drone1.setModel(Model.Middleweight);
 			drone1.setWeightLimit(250);
 			drone1.setBatteryCapacity(90);
-			drone1.setState(State.LOADING);
+			drone1.setState(State.IDLE);
 
 			// save the book
 			droneRepository.save(drone1);
+			
+			
+			// create a new book
+			Drone drone2 = new Drone();
+			drone2.setSerialNumber("10000002");
+			drone2.setModel(Model.Heavyweight);
+			drone2.setWeightLimit(450);
+			drone2.setBatteryCapacity(85);
+			drone2.setState(State.IDLE);
+
+			// save the book
+			droneRepository.save(drone2);
 
 			// create and save new pages
-			Medication med1 = new Medication();
+			/*Medication med1 = new Medication();
 			med1.setName("Med 1");
 			med1.setWeight(50);
 			med1.setCode("A10001");
@@ -58,7 +70,7 @@ public class DroneServicesApplication {
 			med3.setCode("A10003");
 			med3.setImage(new byte[123]);
 			med3.setDrone(drone1);
-			medicationRepository.save(med3);
+			medicationRepository.save(med3);*/
 		};
 	}
 }

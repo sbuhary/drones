@@ -33,12 +33,13 @@ public class Medication implements Serializable {
 	@Column(name = "weight", nullable = false)
 	private int weight;
 
-	@Column(name = "code", nullable = false, unique = true)
+	@Column(name = "code", nullable = false)
 	private String code;
 
-	@Lob
-	@Column(name = "image", nullable = false, columnDefinition = "LONGBLOB")
-	private byte[] image;
+	//@Lob
+	@Column(name = "image", nullable = true)
+	//private byte[] image;
+	private String image;
 
 	@JsonIgnore
 	@ManyToOne

@@ -36,6 +36,9 @@ public class Drone implements Serializable {
 
 	@Column(name = "weight_limit_gr", nullable = false)
 	private int weightLimit; // 500gr max
+	
+	@Column(name = "current_weight_gr", nullable = false)
+	private int currentWeight; // 500gr max
 
 	@Column(name = "battery_capacity_percentage", nullable = false)
 	private int batteryCapacity; // percentage
@@ -56,4 +59,8 @@ public class Drone implements Serializable {
     	medications.remove(medication);
         medication.setDrone(null);
     }
+    
+	public int retrieveCurrentWeight() {
+		return medications.stream().mapToInt(x -> x.getWeight()).sum();
+	}
 }
