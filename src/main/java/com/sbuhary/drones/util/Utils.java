@@ -8,6 +8,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.sbuhary.drones.constant.Constants;
 
+/**
+ * 
+ * @author SBUHARY
+ *
+ */
 public class Utils {
 
 	private Utils() {

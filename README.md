@@ -45,5 +45,5 @@ docker-compose up
 - Start using the endpoints as per the documentation
 
 ## Documentation
-- The Swagger UI page will then be available at: http://<server>:8080/swagger-ui/index.html
-- The OpenAPI description will be available at the following url for json format: http://<server>:8080/v3/api-docs
+- The Swagger UI page will then be available at: http://localhost:8080/swagger-ui/index.html
+- The OpenAPI description will be available at the following url for json format: http://localhost:8080/v3/api-docs

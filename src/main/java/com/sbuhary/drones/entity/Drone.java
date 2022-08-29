@@ -81,6 +81,9 @@ public class Drone implements Serializable {
 	 * @return
 	 */
 	public int retrieveCurrentWeight() {
+		if (medications == null || medications.isEmpty()) {
+			return 0;
+		}
 		return medications.stream().mapToInt(x -> x.getWeight()).sum();
 	}
 }
