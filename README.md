@@ -45,5 +45,25 @@ docker-compose up
 - Start using the endpoints as per the documentation
 
 ## Documentation
-- The Swagger UI page will then be available at: http://localhost:8080/swagger-ui/index.html
+- The Swagger UI page will be available at: http://localhost:8080/swagger-ui/index.html
 - The OpenAPI description will be available at the following url for json format: http://localhost:8080/v3/api-docs
+
+### RegisterDrone
+#### POST /api/v1/drone
+![registerDrone](https://user-images.githubusercontent.com/60466231/187209064-851dd53b-496b-4f6f-aadb-48ebad665bf8.png)
+
+### LoadDroneWithMedication
+#### POST /api/v1/drone/{serial_no}/medication
+![loadDroneWithMedication](https://user-images.githubusercontent.com/60466231/187209106-5ce72e24-83f8-46d2-ab84-bf948523395d.png)
+
+### LoadedMedicationItems
+#### GET /api/v1/drone/{serial_no}/medication
+![loadedMedicationItems](https://user-images.githubusercontent.com/60466231/187209140-0105629c-7cba-4933-9b4b-39a2fefd8a20.png)
+
+### CheckAvailableDrones
+#### GET /api/v1/drone/available
+![checkAvailableDrones](https://user-images.githubusercontent.com/60466231/187209162-a6eed24a-aaa4-4c4c-88db-17f391c85326.png)
+
+### CheckDroneBatteryLevel
+#### GET /api/v1/drone/{serial_no}/battery_level
+![checkDroneBatteryLevel](https://user-images.githubusercontent.com/60466231/187209187-c78a2a31-f8cf-466a-b716-725727385080.png)
