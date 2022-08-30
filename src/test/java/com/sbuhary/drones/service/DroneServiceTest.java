@@ -76,9 +76,9 @@ public class DroneServiceTest {
 		given(droneRepository.existsDroneBySerialNumber(anyString())).willReturn(true);
 		given(droneRepository.findBySerialNumber(anyString())).willReturn(new Drone());
 
-		Drone savedEmployee = droneService.findDroneBySerialNumber("1111111");
+		Drone savedDrone = droneService.findDroneBySerialNumber("1111111");
 
-		assertThat(savedEmployee).isNotNull();
+		assertThat(savedDrone).isNotNull();
 	}
 
 	@DisplayName("JUnit test for findDroneBySerialNumber method which throws exception")
